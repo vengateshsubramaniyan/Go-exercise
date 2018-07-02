@@ -78,6 +78,7 @@ func retriveDomainSpecificURLs(urlPaths []string, baseURL string) []string {
 	}
 	return filterPaths
 }
+
 func get(urlStr string) (string, string, []string) {
 
 	resp, err := http.Get(urlStr)
@@ -94,6 +95,7 @@ func get(urlStr string) (string, string, []string) {
 	urlPaths := hrefs(resp.Body, baseURL)
 	return resp.Request.URL.String(), baseURL, urlPaths
 }
+
 func hrefs(htmlData io.Reader, base string) []string {
 	var ret []string
 	links, _ := link.ParseHTML(htmlData)
